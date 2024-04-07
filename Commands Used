@@ -1,0 +1,7 @@
+Commands Used
+
+npm init -y
+Above commands will create  a new Node.js project with a `package.json` file.
+
+
+npm install playwright

@@ -1,0 +1,24 @@
+# Node Modules
+node_modules/
+
+# Generated files
+*.log
+*.html
+*.png
+
+# Environment files
+.env
+
+# User-specific files
+.vscode/
+.idea/
+
+# Test reports
+/test-reports/
+
+# Package manager directories
+.npm/
+.yarn/
+
+# Playwright browser binaries
+.local-browsers/
