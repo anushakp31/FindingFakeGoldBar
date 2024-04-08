@@ -1,19 +1,22 @@
-// @ts-check
+
 const { test, expect } = require('@playwright/test');
+const _ = require('lodash');
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
+test('Algorithm1', async ({ page }) => {
+  await page.goto('http://sdetchallenge.fetch.com/');
+  page.on('dialog', async dialog => {
+    if (dialog.message() === "Yay! You find it!") {
+        console.log("Success message received: Yay! You find it!");
+        await dialog.accept(); // Accept the dialog
+    } else {
+        console.error("Unexpected dialog message:", dialog.message());
+        // Optionally, you can fail the test here
+        // For example, using Playwright's built-in expect/assert mechanism
+        await expect(false).toBe(true); // Fails the test
+    }
 });
 
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
-
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+  await page.locator('button[id="coin_1"]').click();
+  
 });
+
